@@ -11,7 +11,7 @@ Sensitive Data services for research consists of four components, all accessible
 
 * Sensitive Data Connect: a user interface for storing and sharing encrypted sensitive data during the active phases of research projects.
 
-* Sensitive Data Desktop: a user interface that provides access to a secure virtual computer (or virtual Desktop). The Desktop is not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same private Desktop. As data can not be exported from SD desktop unless specifically authorised by the CSC project manager,  it can be used to provide limited and restricted access to a specific dataset.
+* Sensitive Data Desktop: a user interface that provides access to a secure virtual computers (or virtual Desktops). These Desktops are not connected to the internet. This enables secure computation and processing of sensitive data. All CSC project members and collaborators can access the same private Desktop. As data can not be exported from SD desktop unless specifically authorised by the CSC project manager,  it can be used to provide limited and restricted access to a specific dataset.
 
 * Sensitive Data Submit (pilot phase): allows publishing sensitive data under controlled access.
 
@@ -34,17 +34,17 @@ sensitive data in CSC Sensitive Data service available for download [here](./tec
 
 ## Getting access
 
-Sensitive Data Services are available for all CSC customers. To access CSC's services for sensitive data using [MyCSC](https://my.csc.fi) portal:
+Sensitive Data Services are available for all CSC customers. To access CSC's services for sensitive data, you need to do following steps in [MyCSC](https://my.csc.fi) portal:
 
    1. Create a **user account**.
 
-   3. Create or join a **CSC project** and add project members.
+   2. Create or join a **CSC project** and add project members.
 
-   4. Fill in the **Description of processing activities form** and agree with CSC **Data Processing Agreement**.
+   3. Fill in the **Description of processing activities form** and agree with CSC **Data Processing Agreement**.
     
-   5. **Each project member** needs to **add service access to SD Desktop and to Allas** (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas).
+   4. **Each project member** needs to **add service access to SD Desktop and to Allas** (in case you want to use SD Connect, a user interface for CSC cloud storage solution called Allas).
 
-   6. Apply for billing units or disk quota.
+   5. Apply for billing units or disk quota when needed.
 
 For specific guidance regarding these steps, check the [Accounts](../../accounts/index.md) paragraph at the beginning of this user guide.
 
@@ -53,13 +53,14 @@ For specific guidance regarding these steps, check the [Accounts](../../accounts
 
 **Allas**: a cloud storage service of CSC. SD Connect is a user interface that specifically facilitates sensitive data encryption and storage in Allas. Users can also access Allas programmatically with interfaces for non-sensitive data.
 
-**Billing units**: billing units are used to monitor the resource when CSC services can are free-of-charge or when the user pays the use of the services.
+**Billing units**: billing units are used to monitor the resource usage of a project. All storaga and computing services consume the billing units of a project.  Academic research projects can [apply for more billing units](../../accounts/how-to-apply-for-billing-units/) free-of-charge while commercial users need to buy the billing units they need.
 
-**Bucket/Container**: these two terms refer to the main folder (technically called root folder) where data are stored in SD Connect/Allas. The bucket/container name is visible to the internet. You can have multiple buckets in the same project (up to 500), but each bucket must have a unique name throughout the whole storage system (including other projects). By default, the data in a bucket is accessible just to the project members. However, you can share and grant access to other CSC projects or users with SD Connect.
 
-**CSC Project**: using CSC services is based on projects: all your data in CSC belong inside a project. You can be a project member in one or multiple projects. Each project has a main user, called the CCS project manager, who can add members and services to the project. A project manager is responsible for the activities of the project. They, for example, need to describe which type of sensitive data the project is processing.
+**Bucket/Container**: these two terms refer to the main folder (technically called root folder) where data are stored in SD Connect/Allas. The bucket/container name is visible to the internet. You can have multiple buckets in the same project (up to 1000), but each bucket must have a unique name throughout the whole storage system (including other projects). By default, the data in a bucket is accessible just to the project members. However, you can share and grant access to other CSC projects or users with SD Connect.
 
-**Disk quota**: this is a limited set to control the storage space available to CSC services users. SD Connect has a default quota of 10 TB. You can apply for more writing at servicedesk@csc.fi. 
+**CSC Project**: using CSC services is based on projects: all your data in CSC belong inside a project. You can be a project member in one or multiple projects. Each project has a main user, called the Project Manager, who can add members and services to the project. A project manager is responsible for the activities of the project. They, for example, need to describe which type of sensitive data the project is processing.
+
+**Storage quota**: all CSC storage services provide only limited storage space to CSC services users. In the case of SD Connect the default quota is 10 TB. You can apply for more writing at servicedesk@csc.fi. 
 
 **Data Processing Agreement (DPA)**: a data processing agreement (DPA) is a contract between the Data Controller and the Data Processor. It regulates the particularities of data processing – such as its scope and purpose – as well as the relationship between the controller and the processor: [CSC General terms of use](https://research.csc.fi/general-terms-of-use) and [CSC Data Processing Agreement](https://research.csc.fi/data-processing-agreement).
 
