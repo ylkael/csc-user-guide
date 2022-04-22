@@ -34,11 +34,12 @@ After that you can activate bioconda environment and check the available conda e
 module load bioconda
 conda env list
 ```
-Now you can activate iPyrad enroment:
+Now you can activate iPyrad environment:
 
 ```text
-source activate ipyrad-0.9.81
+source activate ipyrad
 ```
+
 !!! Note
     The actual _ipyrad_ command should always be executed in a batch job environment.
 
@@ -80,6 +81,7 @@ If you are analyzing large datasets, it is recommended that you run the iPyrad p
 
 The first two steps are typically executed rather quickly and you can run them in an interactive batch job environment (see above). 
 For example in the case of job _run1_:
+
 ```text
 ipyrad -p params-run1.txt -s 12 -c 1
 ```
@@ -87,6 +89,7 @@ ipyrad -p params-run1.txt -s 12 -c 1
 The third step of the ipryrad analysis runs a clustering for each sample set. Before starting this step, study first the content of the _jobname_edits_ directory created by the step 2. To check how many samples will be analyzed you can, for example, count the rows in the file _s2_rawedit_stats.txt_.
 
 For example
+
 ```text
 cd run1_edits
 ls -l
@@ -99,6 +102,7 @@ The parallelization implementation of ipyrad requires that you always have only 
 This number of cores is then given to the iPyrad command with option `-c`. This is critical, as otherwise iPyrad will only use one core, even if it is requested from SLURM with `--cpus-per-task=8`. Further, if you are using more than one node you should define that MPI is in use (--MPI) and that the commands of the pipeline are executed using only one computing core (`-t`).
 
 In the sample case here we will use 20 cores in one node. If the run time is expected to be more than 3 days the job should be submitted to longrun partition (#SBATCH --partition=longrun). In this case we reserve 72 hours ( 3 days). Further, in step 3 the clustering commands are executed using 20 cores (-c 20) each running one thread (-t 1 ).
+
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=ipyrad_s3
@@ -119,7 +123,8 @@ ipyrad -p params-run1.txt -s 3 -c 20 -t 1
 
 
 The batch job is launched with command
-```
+
+```text
 sbatch ipyrad_batch_job_file.sh
 ```
 Once the job has finished you could run the next step by replacing `-s 3` with `-s 4` etc.
