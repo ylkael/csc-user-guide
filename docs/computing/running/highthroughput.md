@@ -77,12 +77,12 @@ graph TD
 
 ## Workflow tools
 
-### [Quick glance on different workflows](workflows.md) 
-   - [Gnuparallel](gnuparallel.md)
-   - [Nextflow](nextflow.md)
-   - [FireWorks](fireworks.md)
-   - [Snakemake](snakemake.md)
-   - [Merlin/Flux](merlin_flux.md)
+### [Quick glance on different workflows](workflows_overview.md) 
+   - [Gnuparallel](gnuparallel_overview.md)
+   - [Nextflow](nextflow_overview.md)
+   - [FireWorks](fireworks_overview.md)
+   - [Snakemake](snakemake_overview.md)
+   - [Merlin/Flux](merlin_flux_overview.md)
 
 ### General tools that run multiple jobs with one script
 
