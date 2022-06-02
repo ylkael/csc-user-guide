@@ -37,11 +37,11 @@ Workflow management systems are handy in managing and executing  multistep compl
  </td>
  <td> 
   
-  ```diff 
-! In practice there 
-! are are no  
-! additional files.
-  ```
+ ```diff 
+ ! In practice there 
+ ! are are no  
+ ! additional files.
+ ```
  </td>
  <td> 
   
@@ -54,25 +54,25 @@ Workflow management systems are handy in managing and executing  multistep compl
 
    <tr> <th> Number of jobs & job steps created</th>	<td>
       
-  ```diff 
-  ! It depends on how 
-  ! job is submitted 
-  ```
+ ```diff 
+ ! It depends on how 
+ ! job is submitted 
+ ```
  </td>
      <td>
     </td>
  <td> 
   
-  ```diff 
-  +  With Flux just single
-  +  job step
-   ```
+ ```diff 
+ +  With Flux just single
+ +  job step
+ ```
    </td>
  <td>  
    
-  ```diff 
-  - creates job steps
-  ```
+ ```diff 
+ - creates job steps
+ ```
    </td>
  <td>  
    
@@ -86,103 +86,100 @@ Workflow management systems are handy in managing and executing  multistep compl
  </td>
  <td> 
   
-  ```diff 
-  ! Creates one job step for
-  ! each "firetask" (no way 
-  ! to "pack" multiple job 
-  ! steps)  
-  ```
+ ```diff 
+ ! Creates one job step for
+ ! each "firetask" (no way 
+ ! to "pack" multiple job 
+ ! steps)  
+ ```
   </td>
-</tr>
+  </tr>
 
-<tr> <th> Easy to set up / which / how many additional services needed</th>	<td>
+ <tr> <th> Easy to set up / which / how many additional services needed</th>	<td>
       
-  ```diff 
-  + Installation is 
-  + easy; no database
-  +  depenndencies
-  ```
+ ```diff 
+ + Installation is 
+ + easy; no database
+ +  depenndencies
+ ```
+ </td>
+ <td>
+        
+ ```diff      
+ + Easy to install 
+ + (just pip)
+ ```
  </td>
      <td>
         
-  ```diff      
-  + Easy to install 
-  + (just pip)
-  ```
- </td>
-     <td>
-        
-  ```diff  
-  ! Requires at least Redis DB 
-  ! for results, optionally 
-  ! RabbitMQ for message brokering
-  ```
+ ```diff  
+ ! Requires at least Redis DB 
+ ! for results, optionally 
+ ! RabbitMQ for message brokering
+ ```
    </td>
  <td>  
    
-  ```diff 
-  + easy
-   ```
-   </td>
- <td>  
-   
-  ```diff   
+ ```diff 
  + easy
+ ```
+   </td>
+ <td>  
    
+ ```diff   
+ + easy  
   ```
  </td>
  <td> 
   
-  ```diff 
-  + Fireworks is easy to 
-  + install (just pip), 
-  - but needs MongoDB
-   ```
+ ```diff 
+ + Fireworks is easy to 
+ + install (just pip), 
+ - but needs MongoDB
+ ```
   </td>
 </tr>
 
   <tr> <th> Supports dependencies/conditional execution of steps</th>	<td>
       
-  ```diff 
-  + Yes
-  ```
+ ```diff 
+ + Yes
+ ```
  </td>
      <td>
         
-  ```diff      
-  + Yes using check-
-  + points,but unclear
-  + how while like 
-  + conditions can be
-  + handled
-  ```
+ ```diff      
+ + Yes using check-
+ + points,but unclear
+ + how while like 
+ + conditions can be
+ + handled
+ ```
  </td>
      <td>
         
-  ```diff  
-  + Yes, different types of 
-  + dependencies, restarts
-   
-   ```
+ ```diff  
+ + Yes, different types of 
+ + dependencies, restarts  
+ ```
    </td>
  <td>  
    
-  ```diff 
-  ! simple dependencies
-   ```
+ ```diff 
+ ! simple dependencies
+ ```
    </td>
  <td>  
    
   ```diff   
- - Not really
-   
+  - Not really 
   ```
  </td>
  <td> 
   
   ```diff 
   + yes
-   ```
+  ```
   </td>
 </tr>
 
@@ -202,21 +199,19 @@ Workflow management systems are handy in managing and executing  multistep compl
      <td>
         
   ```diff  
-  + Yes
-   
-   ```
+  + Yes 
+  ```
    </td>
  <td>  
    
   ```diff 
   #
-   ```
+  ```
    </td>
  <td>  
    
   ```diff   
- + yes
-   
+  + yes 
   ```
  </td>
  <td> 
@@ -249,21 +244,19 @@ Workflow management systems are handy in managing and executing  multistep compl
   ```diff  
   + Yes, can continue workflow 
   + after job crashes. Also 
-  + possibility for separate restart 
-   
-   ```
+  + possibility for separate restart  
+  ```
    </td>
  <td>  
    
   ```diff 
   - no
-   ```
+  ```
    </td>
  <td>  
    
   ```diff   
- - Depends, but not really.
-   
+  - Depends, but not really. 
   ```
  </td>
  <td> 
@@ -275,7 +268,7 @@ Workflow management systems are handy in managing and executing  multistep compl
   ! continue to do all tasks 
   ! that do not depend on the 
   ! failed task
-   ```
+  ```
   </td>
 </tr>
 
@@ -285,7 +278,6 @@ Workflow management systems are handy in managing and executing  multistep compl
   ```diff 
   + Implicit parallelism
   ! MPI support is available
-
   ```
  </td>
      <td>
@@ -298,28 +290,26 @@ Workflow management systems are handy in managing and executing  multistep compl
         
   ```diff  
   +  MPI supported with Flux and 
-  + 'correct' versions of MPI
-   
-   ```
+  + 'correct' versions of MPI 
+  ```
    </td>
  <td>  
    
   ```diff 
   + openMP
-   ```
+  ```
    </td>
  <td>  
    
   ```diff   
- + MPI/OpenMP
-   
+  + MPI/OpenMP 
   ```
  </td>
  <td> 
   
   ```diff 
   + MPI/OpenMP
-   ```
+  ```
   </td>
 </tr>
 
@@ -341,35 +331,33 @@ Workflow management systems are handy in managing and executing  multistep compl
         
   ```diff  
   + Yes, either using srun 
-  + for job steps or Flux
-   
-   ```
+  + for job steps or Flux 
+  ```
    </td>
  <td>  
    
   ```diff 
   + Yes
-   ```
+  ```
    </td>
  <td>  
    
-  ```diff   
+ ```diff   
  ! honestly the whole system 
  ! works best when executed 
  ! just inside the job, so 
  ! no real integration is 
- ! needed for most applications.
-   
-  ```
+ ! needed for most applications  
+ ```
  </td>
  <td> 
   
-  ```diff 
-  ! Yes, but you can't easily tailor 
-  ! queue parameters for individual 
-  ! subtasks (workflow will 
-  ! use fixed number of resources)
-   ```
+ ```diff 
+ ! Yes, but you can't easily tailor 
+ ! queue parameters for individual 
+ ! subtasks (workflow will 
+ ! use fixed number of resources)
+ ```
   </td>
 </tr>
 
@@ -377,49 +365,47 @@ Workflow management systems are handy in managing and executing  multistep compl
 
  <tr> <th> SWhat kind of jobs/workload this is good for?</th>	<td>
       
-  ```diff 
-  + Complex workflows with 
-  + several dependencies
-  ```
+ ```diff 
+ + Complex workflows with 
+ + several dependencies
+ ```
  </td>
      <td>
         
-  ```diff      
+ ```diff      
 
-  ```
+ ```
  </td>
      <td>
         
-  ```diff  
-  + More complicated workflows 
-  + with several steps
-   
-   ```
+ ```diff  
+ + More complicated workflows 
+ + with several steps  
+ ```
    </td>
  <td>  
    
-  ```diff 
+ ```diff 
  
-   ```
+ ```
    </td>
  <td>  
    
-  ```diff   
+ ```diff   
  + Large numbers of short jobs 
  + that are mostly independent
- + of each other.
-   
-  ```
+ + of each other
+ ```
  </td>
  <td> 
   
-  ```diff 
-  + Complicated workflows 
-  + with several (dependent)
-  + steps. 
-  #  Not for farming
-  # (jobsteps are created)
-   ```
+ ```diff 
+ + Complicated workflows 
+ + with several (dependent)
+ + steps. 
+ #  Not for farming
+ # (jobsteps are created)
+ ```
   </td>
 </tr>
 </table>
