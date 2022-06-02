@@ -7,22 +7,19 @@ Workflow management systems are handy in managing and executing  multistep compl
 <tr> <th> platform</th> <td>	Groovy/JVM</td><td>	Python	</td><td> Merlin (Python); Flux (Python, C and lua)</td></td><td> <td>	Rust/Python	</td><td> Python</td>
   </tr>
   <tr>
-   <th> Number of files created	</th> 
- <td> 
+   <th> Number of files created	</th> <td> 
   
   ```diff 
  ! Depends on number
  ! of tasks; A folder
  ! per task
   ```
-  </td>
-  <td>
-      
+  </td> <td>
+  
   ```diff 
  
-  ```      
-   </td>
-   <td> 
+  ```
+  </td> <td> 
   
   ```diff 
  ! Folder hierarchy 
