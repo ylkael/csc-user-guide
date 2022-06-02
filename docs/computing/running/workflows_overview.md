@@ -9,10 +9,10 @@ Workflow management systems are handy in managing and executing  multistep compl
   <tr>
    <th> Number of files created	</th> <td> 
   
- ```diff 
- !! Depends on number
- !of tasks; A folder
- !!! per task
+ ```py hl_lines="1"
+ Depends on number
+ of tasks; A folder
+ per task
  ```
   </td> <td>
   
@@ -409,11 +409,3 @@ Workflow management systems are handy in managing and executing  multistep compl
   </td>
 </tr>
 </table>
-
-``` py hl_lines="1"
-def bubble_sort(items):
-    for i in range(len(items)):
-        for j in range(len(items) - 1 - i):
-            if items[j] > items[j + 1]:
-                items[j], items[j + 1] = items[j + 1], items[j]
-```
