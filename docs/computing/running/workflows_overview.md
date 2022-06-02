@@ -410,7 +410,7 @@ Workflow management systems are handy in managing and executing  multistep compl
 </tr>
 </table>
 
-``` py hl_lines="2 3"
+``` py hl_lines="1"
 def bubble_sort(items):
     for i in range(len(items)):
         for j in range(len(items) - 1 - i):
