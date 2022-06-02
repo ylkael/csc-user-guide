@@ -171,57 +171,57 @@ Workflow management systems are handy in managing and executing  multistep compl
    </td>
  <td>  
    
-  ```diff   
-  - Not really 
-  ```
+ ```diff   
+ - Not really 
+ ```
  </td>
  <td> 
   
-  ```diff 
-  + yes
-  ```
+ ```diff 
+ + yes
+ ```
   </td>
 </tr>
 
 
  <tr> <th> Execution with containers</th>	<td>
       
-  ```diff 
-  + Yes
-  ```
+ ```diff 
+ + Yes
+ ```
  </td>
      <td>
         
-  ```diff      
-  + Yes
-  ```
+ ```diff      
+ + Yes
+ ```
  </td>
      <td>
         
-  ```diff  
-  + Yes 
-  ```
+ ```diff  
+ + Yes 
+ ```
    </td>
  <td>  
    
-  ```diff 
-  #
-  ```
+ ```diff 
+ #
+ ```
    </td>
  <td>  
    
-  ```diff   
-  + yes 
-  ```
+ ```diff   
+ + yes 
+ ```
  </td>
  <td> 
   
-  ```diff 
-  ! FW itself offers no support 
-  ! for containers. However, 
-  ! actual calculations can be
-  ! executed in a container.
-   ```
+ ```diff 
+ ! FW itself offers no support 
+ ! for containers. However, 
+ ! actual calculations can be
+ ! executed in a container.
+ ```
   </td>
 </tr>
 
@@ -229,116 +229,116 @@ Workflow management systems are handy in managing and executing  multistep compl
 
  <tr> <th> Error recovery strategies</th>	<td>
       
-  ```diff 
-  + Yes
-  ```
+ ```diff 
+ + Yes
+ ```
  </td>
      <td>
         
-  ```diff      
-  - No (unclear )
-  ```
+ ```diff      
+ - No (unclear )
+ ```
  </td>
      <td>
         
-  ```diff  
-  + Yes, can continue workflow 
-  + after job crashes. Also 
-  + possibility for separate restart  
-  ```
+ ```diff  
+ + Yes, can continue workflow 
+ + after job crashes. Also 
+ + possibility for separate restart  
+ ```
    </td>
  <td>  
    
-  ```diff 
-  - no
-  ```
+ ```diff 
+ - no
+ ```
    </td>
  <td>  
    
-  ```diff   
-  - Depends, but not really. 
-  ```
+ ```diff   
+ - Depends, but not really. 
+ ```
  </td>
  <td> 
   
-  ```diff 
-  ! Detection, logging and 
-  ! option for manual restarting.
-  ! In case of failure, FW will 
-  ! continue to do all tasks 
-  ! that do not depend on the 
-  ! failed task
-  ```
+ ```diff 
+ ! Detection, logging and 
+ ! option for manual restarting.
+ ! In case of failure, FW will 
+ ! continue to do all tasks 
+ ! that do not depend on the 
+ ! failed task
+ ```
   </td>
 </tr>
 
 
  <tr> <th> Supports which ways of parallelization? OpenMP, MPI, mixed</th>	<td>
       
-  ```diff 
-  + Implicit parallelism
-  ! MPI support is available
-  ```
+ ```diff 
+ + Implicit parallelism
+ ! MPI support is available
+ ```
  </td>
      <td>
         
-  ```diff      
+ ```diff      
   
-  ```
+ ```
  </td>
      <td>
         
-  ```diff  
-  +  MPI supported with Flux and 
-  + 'correct' versions of MPI 
-  ```
+ ```diff  
+ +  MPI supported with Flux and 
+ + 'correct' versions of MPI 
+ ```
    </td>
  <td>  
    
-  ```diff 
-  + openMP
-  ```
+ ```diff 
+ + openMP
+ ```
    </td>
  <td>  
    
-  ```diff   
-  + MPI/OpenMP 
-  ```
+ ```diff   
+ + MPI/OpenMP 
+ ```
  </td>
  <td> 
   
-  ```diff 
-  + MPI/OpenMP
-  ```
+ ```diff 
+ + MPI/OpenMP
+ ```
   </td>
 </tr>
 
 
  <tr> <th> SLURM integration</th>	<td>
       
-  ```diff 
-  ! Yes but needs to be 
-  ! used carefully
-  ```
+ ```diff 
+ ! Yes but needs to be 
+ ! used carefully
+ ```
  </td>
      <td>
         
-  ```diff      
-  ! Yes (partial)
-  ```
+ ```diff      
+ ! Yes (partial)
+ ```
  </td>
      <td>
         
-  ```diff  
-  + Yes, either using srun 
-  + for job steps or Flux 
-  ```
+ ```diff  
+ + Yes, either using srun 
+ + for job steps or Flux 
+ ```
    </td>
  <td>  
    
-  ```diff 
-  + Yes
-  ```
+ ```diff 
+ + Yes
+ ```
    </td>
  <td>  
    
