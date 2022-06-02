@@ -9,7 +9,7 @@ Workflow management systems are handy in managing and executing  multistep compl
   <tr>
    <th> Number of files created	</th> <td> 
   
- ```py hl_lines="1"
+ ```py hl_lines="1 2 3"
  Depends on number
  of tasks; A folder
  per task
@@ -21,42 +21,42 @@ Workflow management systems are handy in managing and executing  multistep compl
   ```
   </td> <td> 
   
- ```diff 
- ! Folder hierarchy 
- ! for tasks, creates
- ! four files per workflow 
- ! item
+ ```py hl_lines="1 2 3 4"
+ Folder hierarchy 
+ for tasks, creates
+ four files per workflow 
+ item
  ```
  </td>
  <td> 
   
- ```diff 
- ! Depends on the workflow
- ! /jobs executed
+ ```py hl_lines="1 2" 
+ Depends on the workflow
+ /jobs executed
  ```
  </td>
  <td> 
   
- ```diff 
- ! In practice there 
- ! are are no  
- ! additional files.
+ ```py hl_lines="1 2 3" 
+ In practice there 
+ are are no  
+ additional files.
  ```
  </td>
  <td> 
   
- ```diff 
- ! Depends on the 
- ! workflow, at least 
- ! 4 per workflow
+ ```py hl_lines="1 2 3"  
+ Depends on the 
+ workflow, at least 
+ 4 per workflow
  ```
  </td>
 
    <tr> <th> Number of jobs & job steps created</th>	<td>
       
- ```diff 
- ! It depends on how 
- ! job is submitted 
+ ```py hl_lines="1 2"  
+ It depends on how 
+ job is submitted 
  ```
  </td>
      <td>
@@ -76,21 +76,21 @@ Workflow management systems are handy in managing and executing  multistep compl
    </td>
  <td>  
    
- ```diff   
- ! Depends on the workflow.
- ! Might be just one job 
- ! step for the whole
- ! workflow. But depends
- ! on the HQ jobs executed
+ ```py hl_lines="1 2 3 4 5"    
+ Depends on the workflow.
+ Might be just one job 
+ step for the whole
+ workflow. But depends
+ on the HQ jobs executed
  ```
  </td>
  <td> 
   
- ```diff 
- ! Creates one job step for
- ! each "firetask" (no way 
- ! to "pack" multiple job 
- ! steps)  
+ ```py hl_lines="1 2 3 4"  
+ Creates one job step for
+ each "firetask" (no way 
+ to "pack" multiple job 
+ steps)  
  ```
   </td>
   </tr>
@@ -100,7 +100,7 @@ Workflow management systems are handy in managing and executing  multistep compl
  ```diff 
  + Installation is 
  + easy; no database
- +  depenndencies
+ + depenndencies
  ```
  </td>
  <td>
@@ -112,10 +112,10 @@ Workflow management systems are handy in managing and executing  multistep compl
  </td>
      <td>
         
- ```diff  
- ! Requires at least Redis DB 
- ! for results, optionally 
- ! RabbitMQ for message brokering
+ ```py hl_lines="1 2 3"  
+ Requires at least Redis DB 
+ for results, optionally 
+ RabbitMQ for message brokering
  ```
    </td>
  <td>  
@@ -165,8 +165,8 @@ Workflow management systems are handy in managing and executing  multistep compl
    </td>
  <td>  
    
- ```diff 
- ! simple dependencies
+ ```py hl_lines="1"  
+ simple dependencies
  ```
    </td>
  <td>  
@@ -216,11 +216,11 @@ Workflow management systems are handy in managing and executing  multistep compl
  </td>
  <td> 
   
- ```diff 
- ! FW itself offers no support 
- ! for containers. However, 
- ! actual calculations can be
- ! executed in a container.
+ ```py hl_lines="1 2 3 4"  
+ FW itself offers no support 
+ for containers. However, 
+ actual calculations can be
+ executed in a container.
  ```
   </td>
 </tr>
@@ -261,13 +261,13 @@ Workflow management systems are handy in managing and executing  multistep compl
  </td>
  <td> 
   
- ```diff 
- ! Detection, logging and 
- ! option for manual restarting.
- ! In case of failure, FW will 
- ! continue to do all tasks 
- ! that do not depend on the 
- ! failed task
+ ```py hl_lines="1 2 3 4 5 6"  
+ Detection, logging and 
+ option for manual restarting.
+ In case of failure, FW will 
+ continue to do all tasks 
+ that do not depend on the 
+ failed task
  ```
   </td>
 </tr>
@@ -277,7 +277,7 @@ Workflow management systems are handy in managing and executing  multistep compl
       
  ```diff 
  + Implicit parallelism
- ! MPI support is available
+ - limited MPI support is available
  ```
  </td>
      <td>
@@ -316,15 +316,15 @@ Workflow management systems are handy in managing and executing  multistep compl
 
  <tr> <th> SLURM integration</th>	<td>
       
- ```diff 
- ! Yes but needs to be 
- ! used carefully
+ ```py hl_lines="1 2"  
+ Yes but needs to be 
+ used carefully
  ```
  </td>
      <td>
         
- ```diff      
- ! Yes (partial)
+ ```py hl_lines="1"       
+ Yes (partial)
  ```
  </td>
      <td>
@@ -342,21 +342,21 @@ Workflow management systems are handy in managing and executing  multistep compl
    </td>
  <td>  
    
- ```diff   
- ! honestly the whole system 
- ! works best when executed 
- ! just inside the job, so 
- ! no real integration is 
- ! needed for most applications  
+ ```py hl_lines="1 2 3 4 5"   
+ honestly the whole system 
+ works best when executed 
+ just inside the job, so 
+ no real integration is 
+ needed for most applications  
  ```
  </td>
  <td> 
   
- ```diff 
- ! Yes, but you can't easily tailor 
- ! queue parameters for individual 
- ! subtasks (workflow will 
- ! use fixed number of resources)
+ ```py hl_lines="1 2 3 4"  
+ Yes, but you can't easily tailor 
+ queue parameters for individual 
+ subtasks (workflow will 
+ use fixed number of resources)
  ```
   </td>
 </tr>
