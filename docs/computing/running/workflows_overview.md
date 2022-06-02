@@ -9,11 +9,11 @@ Workflow management systems are handy in managing and executing  multistep compl
   <tr>
    <th> Number of files created	</th> <td> 
   
-  ```diff 
+ ```diff 
  ! Depends on number
  ! of tasks; A folder
  ! per task
-  ```
+ ```
   </td> <td>
   
   ```diff 
@@ -21,35 +21,35 @@ Workflow management systems are handy in managing and executing  multistep compl
   ```
   </td> <td> 
   
-  ```diff 
+ ```diff 
  ! Folder hierarchy 
  ! for tasks, creates
  ! four files per workflow 
  ! item
-  ```
+ ```
  </td>
  <td> 
   
-  ```diff 
+ ```diff 
  ! Depends on the workflow
  ! /jobs executed
-  ```
+ ```
  </td>
  <td> 
   
   ```diff 
 ! In practice there 
-!  are are no  
-!  additional files.
+! are are no  
+! additional files.
   ```
  </td>
  <td> 
   
-  ```diff 
+ ```diff 
  ! Depends on the 
  ! workflow, at least 
  ! 4 per workflow
-  ```
+ ```
  </td>
 
    <tr> <th> Number of jobs & job steps created</th>	<td>
@@ -66,26 +66,23 @@ Workflow management systems are handy in managing and executing  multistep compl
   ```diff 
   +  With Flux just single
   +  job step
-   
    ```
    </td>
  <td>  
    
   ```diff 
   - creates job steps
-   ```
+  ```
    </td>
  <td>  
    
-  ```diff   
+ ```diff   
  ! Depends on the workflow.
  ! Might be just one job 
  ! step for the whole
  ! workflow. But depends
- ! on the HQ jobs executed.
-
-   
-  ```
+ ! on the HQ jobs executed
+ ```
  </td>
  <td> 
   
@@ -93,9 +90,8 @@ Workflow management systems are handy in managing and executing  multistep compl
   ! Creates one job step for
   ! each "firetask" (no way 
   ! to "pack" multiple job 
-  ! steps) 
-   
-   ```
+  ! steps)  
+  ```
   </td>
 </tr>
 
@@ -120,8 +116,7 @@ Workflow management systems are handy in managing and executing  multistep compl
   ! Requires at least Redis DB 
   ! for results, optionally 
   ! RabbitMQ for message brokering
-   
-   ```
+  ```
    </td>
  <td>  
    
