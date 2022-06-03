@@ -205,7 +205,7 @@ Workflow management systems are handy in managing and executing  multistep compl
  <td>  
    
  ```diff 
- #
+ 
  ```
    </td>
  <td>  
@@ -403,8 +403,7 @@ Workflow management systems are handy in managing and executing  multistep compl
  + Complicated workflows 
  + with several (dependent)
  + steps. 
- #  Not for farming
- # (jobsteps are created)
+ -  Not for farming
  ```
   </td>
 </tr>
