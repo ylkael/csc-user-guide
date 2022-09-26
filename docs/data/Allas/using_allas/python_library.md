@@ -63,6 +63,7 @@ _os_options = {
     'project_domain_name': 'Default',
     'project_name': 'project_123456'
 }
+_project = _os_options["project_name"]
 
 conn = swiftclient.Connection(
     authurl=_authurl,
@@ -111,8 +112,8 @@ In the case of larger files, you should use _SwiftService_.
 
 ```python
 object_list = [ 'my_snake.txt' ]
-# limit upload threads to 4
-opts = {'object_uu_threads': 4}
+# limit upload threads to 4 and define connection options
+ opts = {'object_uu_threads': 4, 'os_auth_url' : _authurl, 'os_username' : _user, 'os_password' : _key, 'os_project_name' : _project, 'os_project_domain_name' : 'Default' }
 
 with SwiftService(options=opts) as swift:
     try:
@@ -138,10 +139,10 @@ with SwiftService(options=opts) as swift:
 
 List all buckets belonging to a project:
 ```python
-resp_headers, containers = conn.get_account()
+resp_headers, buckets = conn.get_account()
 
-for container in containers:
-   print(container)
+for bucket in buckets:
+   print(bucket['name'],bucket['count'], bucket['bytes'])
 ```
 
 And all objects belonging to a bucket:
