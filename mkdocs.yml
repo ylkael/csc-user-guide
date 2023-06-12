@@ -321,10 +321,10 @@ nav:
 #          - SD Apply: data/sensitive-data/sd-apply.md
 #          - Containers: data/sensitive-data/creating_containers.md
        - Secondary use of health and social data:
-          - Access data provided by findata
-          - Access data provided by singlle registers
-          - SD Desktop for seconday use
-          - Intructions for data controllers
+          - Access data provided by findata: data/sensitive-data/sd_connect.md
+          - Access data provided by singlle registers: data/sensitive-data/sd_connect.md
+          - SD Desktop for seconday use: data/sensitive-data/sd_connect.md
+          - Intructions for data controllers: data/sensitive-data/sd_connect.md
 
      - Kaivos database service:
         - data/kaivos/overview.md
