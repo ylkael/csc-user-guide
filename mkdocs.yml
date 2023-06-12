@@ -320,8 +320,8 @@ nav:
 #          - SD Apply: data/sensitive-data/sd-apply.md
 #          - Containers: data/sensitive-data/creating_containers.md
        - Secondary use of health and social data:
-          - Access data provided by singlle registers: data/sensitive-data/sd_connect.md
-          - SD Desktop for seconday use: data/sensitive-data/sd_connect.md
+           - Access data provided by singlle registers: data/sensitive-data/sd_connect.md
+           - SD Desktop for seconday use: data/sensitive-data/sd_connect.md
         
 
      - Kaivos database service:
