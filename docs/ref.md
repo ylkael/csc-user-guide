@@ -379,6 +379,34 @@ for MkDocs) is called 'outlined' in the CSC Design System. -->
 <!-- So, to recap, if you wan't a 'normal' filled-in button (called 'default'), you must add the
 '.md-button--primary' class to the attribute list. -->
 
+
+## Icons/emojis
+
+In addition to emojis (used with the familiar shortcodes like `:smile:` for :smile:) from Twemoji,
+icon sets from Material Design, FontAwesome, Octicons and Simple Icons are bundled with Material
+for MkDocs. You can
+[search the icon and emoji database at Material](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search).
+
+The file _csc-overrides/assets/stylesheets/icons.css_ may be used for styling (see _variables.css_
+for colors etc. to maintain a coherent style), for example adding
+
+=== "Markdown"
+    `:fontawesome-solid-computer:{ .large-turqoise-crashed-computer }`
+
+=== "icons.css"
+    ```css
+    .large-turqoise-crashed-computer {
+      scale: 3.0;
+      color: var(--csc-turqoise);
+      transform: rotate(160deg);
+    }
+    ```
+
+would produce this monstrosity:
+
+:fontawesome-solid-computer:{ style="scale: 3.0; color: var(--csc-turqoise); transform: rotate(160deg);" }
+
+
 ## Tabbed content
 === "First tab"
     Content can be divided into tabs. The first one is visible by default.
