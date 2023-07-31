@@ -1,0 +1,15 @@
+.throughput-table-icon {
+  scale: 1.5;
+}
+
+.success-icon {
+  color: var(--csc-success);
+}
+
+.warning-icon {
+  color: var(--csc-warning);
+}
+
+.error-icon {
+  color: var(--csc-error);
+}
