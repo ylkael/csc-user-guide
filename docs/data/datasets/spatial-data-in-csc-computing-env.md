@@ -14,7 +14,7 @@ Puhti has following datasets:
         + Automatically classified lidar data, only data of year 2019
 *   **LUKE, multi-source national forest inventory**, 2013, 2015, 2017, 2019 and 2021. LUKE license changed in Aug 2019 to CC BY 4.0.
 *   **SYKE, All open spatial datasets** available from [SYKE open data service](https://www.syke.fi/fi-FI/Avoin_tieto/Paikkatietoaineistot/Ladattavat_paikkatietoaineistot).
-*   **Finnish Forest Centre, [Canopy height model, 2021](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)**, CC BY 4.0 license, **added in 2022**   
+*   **Finnish Forest Centre, [Canopy height model, 2021](https://www.paikkatietohakemisto.fi/geonetwork/srv/fin/catalog.search#/metadata/0e7ad446-2999-4c94-ad0d-095991d8f80a)**, 1m, CC BY 4.0 license, **updated in 2023**   
 *   **Satellite mosaics produced by SYKE and FMI** in Paikkatietoalusta project,
     -   [Sentinel1 SAR mosaics](https://ckan.ymparisto.fi/dataset/sentinel-1-sar-image-mosaic-s1sar-sentinel-1-sar-kuvamosaiikki-s1sar): 10/2019 ->, 3 mosaics per month
     -   [Sentinel2 index mosaics](https://ckan.ymparisto.fi/dataset/sentinel-2-image-index-mosaics-s2ind-sentinel-2-kuvamosaiikit-s2ind): 2018 ->, 2 mosaics per month, only during vegetation period, NDVI, NDBI, NDMI, NDTI, META.
