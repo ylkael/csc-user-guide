@@ -2,8 +2,6 @@
 
 This article explains how to manage images in Pouta.
 
-[TOC]
-
 ## Creating images
 
 There are two different options for creating new virtual machine
@@ -19,28 +17,36 @@ interface.
 
 Launching an instance on the command line:
 
-    openstack server create --flavor <flavor> \
-    --image <image uuid> \
-    --key-name <key name> \
-    --nic net-id=<name of network> \
-    --security-group default \
-    --security-group <additional security group> <name of server>
+```sh
+openstack server create --flavor <flavor> \
+  --image <image uuid> \
+  --key-name <key name> \
+  --nic net-id=<name of network> \
+  --security-group default \
+  --security-group <additional security group> <name of server>
+```
 
 Login and make any necessary changes. To ensure consistent snapshots,
 snapshots should only be created from instances which are powered off.
 First power off your instance:
 
-    openstack server stop <name of vm>
+```sh
+openstack server stop <name of vm>
+```
 
 Then create a snapshot of the machine's current state:
 
-    openstack server image create --name <name of snapshot to create> <name of vm>
+```sh
+openstack server image create --name <name of snapshot to create> <name of vm>
+```
 
 It takes some time to create the snapshot. Once it is finished,
 it appears as a new image. If you need the original instance, you
 can power it on after the snapshot has been created.
 
-    openstack server start <name of vm>
+```
+openstack server start <name of vm>
+```
 
 In the web UI under **Compute \| Instances**, the instance-specific
 Create Snapshot menu items work for the same effect as the CLI
@@ -58,26 +64,11 @@ that take a base image and make modifications to it without running a
 virtual machine. We will call these "installation-based tools" and
 "base image tools".
 
-<table> <colgroup> <col style="width: 33%" /> <col style="width: 33%"
-/> <col style="width: 33%" /> </colgroup> <thead> <tr class="header">
-<th> </th> <th>Installation-based tools</th> <th>Base image tools</th>
-</tr> </thead> <tbody> <tr class="odd"> <td>Pros</td> <td><ul>
-<li>Easy to use and understand</li> <li>Familiar workflow for anyone
-familiar with manual OS installation</li> </ul></td> <td><ul>
-<li>Fast</li> <li>Possible to automate</li> <li>Produces small
-images</li> <li>Produces images suitable for clouds without
-modification</li> </ul></td> </tr> <tr class="even"> <td>Cons</td>
-<td><ul> <li>Slow</li> <li>Upgrades are cumbersome</li> <li>Care must
-be taken to make images cloud-ready after the initial installation</li>
-<li>Images produced can be quite large</li> </ul></td> <td><ul>
-<li>May be difficult to customize images</li> </ul></td> </tr> <tr
-class="odd"> <td>Examples</td> <td><a
-href="http://linux.die.net/man/1/virt-install">virt-install</a>, <a
-href="https://virt-manager.org/">virt-manager</a>, <a
-href="https://www.virtualbox.org/">VirtualBox</a></td> <td><a
- href="https://github.com/openstack/diskimage-builder">diskimage-builder</a>,
-<a href="http://libguestfs.org/virt-builder.1.html">virt-builder</a></td>
-</tr> </tbody> </table>
+||Installation-based tools|Base image tools|
+|-:|:-|:-|
+|Pros|- Easy to use and understand<br/>- Familiar workflow for anyone familiar with<br/> manual OS installation|- Fast<br/>- Possible to automate<br/>- Produces small images<br/>- Produces images suitable for clouds<br/> without modification|
+|Cons|- Slow<br/>- Upgrades are cumbersome<br/>- Care must be taken to make images cloud-<br/>ready after the initial installation<br/>- Images produced can be quite large|- May be difficult to customize images|
+|Examples|[virt-install](http://linux.die.net/man/1/virt-install), [virt-manager](https://virt-manager.org/), [VirtualBox](https://www.virtualbox.org/)|[diskimage-builder](https://github.com/openstack/diskimage-builder), [virt-builder](https://github.com/openstack/diskimage-builder)|
 
 The generic workflow when using installation-based tools:
 
@@ -85,7 +76,7 @@ The generic workflow when using installation-based tools:
 2. Start a virtual machine and point it to the installation media or
  network installation link.
 3. Go through the installer.
- - This step can optionally be automated using e.g. [Kickstart].
+    - This step can optionally be automated using e.g. [Kickstart].
 4. After the installation is finished, shut down the VM and use
  additional tools to prepare the image for cloud use.
 
@@ -191,7 +182,7 @@ operation on a personal computer, but to use an auxiliary virtual
 machine within Pouta instead. In the following, we illustrate the 
 procedure using a temporary virtual machine.
 
-1) We assume we have just performed a snapshot of a virtual machine, 
+1. We assume we have just performed a snapshot of a virtual machine, 
 and we have thus obtained an image _myVmSnapshot_. The first step is to 
 create a temporary virtual machine that we will use to convert 
 myVmSnapshot. The virtual machine should have enough space to host 
@@ -203,97 +194,106 @@ the size of myVmSnapshot. For example, if myVmSnapshot has a size of
 because it has 160 GB of ephemeral storage. The operating system can be 
 CentOS-7, for example.
 
+    ```sh
     openstack server create --flavor <flavor> \
-    --image <image uuid> \
-    --key-name <key name> \
-    --nic net-id=<name of network> \
-    --security-group default \
-    --security-group <additional security group> snapshotConverter
+      --image <image uuid> \
+      --key-name <key name> \
+      --nic net-id=<name of network> \
+      --security-group default \
+      --security-group <additional security group> snapshotConverter
+    ```
 
-The only additional requirements for the setting up of the virtual 
-machine are i) attaching a public floating IP, and ii) enabling SSH, so that 
-we can actually log into the virtual machine.
+    The only additional requirements for the setting up of the virtual machine are i) attaching a public floating IP, and ii) enabling SSH, so that we can actually log into the virtual machine.
 
-2) Once the virtual machine is up and running, we copy the OpenStack 
-RC File v3 for accessing to cPouta/ePouta in the virtual machine. If you 
-do not have such file yet, please refer to
-[this guide](install-client.md#configure-your-terminal-environment-for-openstack)
-to obtain a copy.
+2. Once the virtual machine is up and running, we copy the OpenStack RC File v3 for accessing to cPouta/ePouta in the virtual machine. If you do not have such file yet, please refer to [this guide](install-client.md#configure-your-terminal-environment-for-openstack) to obtain a copy.
 
+    ```sh
     scp <project_name_here>-openrc.sh cloud-user@<floating_ip>:/home/cloud-user/
+    ```
 
-Login into the virtual machine and use the file to load your 
-credentials.
+    Login into the virtual machine and use the file to load your credentials.
 
+    ```sh
     source <project_name_here>-openrc.sh
+    ```
 
-3) In order to host the image obtained from the snapshot, we need to 
+3. In order to host the image obtained from the snapshot, we need to 
 initialize properly the ephemeral storage. To do so, please refer to
 [our guide](ephemeral-storage.md). After this
 step, we assume the ephemeral disk is mounted in _/mnt_.
 
-4) Next, we need to equip the virtual machine with some basic tools we 
+4. Next, we need to equip the virtual machine with some basic tools we 
 will need.
 
+    ```sh
     sudo yum install python3 python3-virtualenv screen qemu-img
+    ```
 
-We create a python-3 virtual environment, which we will use to interact 
-with cPouta/ePouta, and we enter in it.
+    We create a python-3 virtual environment, which we will use to interact with cPouta/ePouta, and we enter in it.
 
+    ```sh
     virtualenv-3 env
     source env/bin/activate
+    ```
 
-Now we install the actual tools we need to talk with cPouta/ePouta.
+    Now we install the actual tools we need to talk with cPouta/ePouta.
 
+    ```sh
     pip install python-openstackclient==3.11.0 openstacksdk==0.9.17 os-client-config==1.27.0 osc-lib==1.6.0
+    ```
 
-5) Next, we download the image we obtained taking the snapshot. Move to 
+5. Next, we download the image we obtained taking the snapshot. Move to 
 the ephemeral storage directory.
 
+    ```sh
     cd /mnt
+    ```
 
-Though it is not required, at this point we recommend opening a _screen_ 
-session, which allows to keep a process running in background, i.e., 
-without the need of waiting for its completion before closing the 
-terminal.
+    Though it is not required, at this point we recommend opening a _screen_ session, which allows to keep a process running in background, i.e., without the need of waiting for its completion before closing the terminal.
 
+    ```sh
     screen -S converter
+    ```
 
-We now issue the command to download the image obtained from the 
-snapshot.
+    We now issue the command to download the image obtained from the snapshot.
 
+    ```sh
     openstack image save --file myVmSnapshotRaw.raw <id_of_myVmSnapshot>
+    ```
 
-Given the size of the image, the process will take few minutes. We can 
-exit the screen session by pressing CTRL+A followed by CTRL+D. We can 
-re-enter the screen session any time typing:
+    Given the size of the image, the process will take few minutes. We can exit the screen session by pressing CTRL+A followed by CTRL+D. We can re-enter the screen session any time typing:
 
+    ```sh
     screen -r converter
+    ```
 
-6) Once the previous command has finished, it is time to convert the 
+6. Once the previous command has finished, it is time to convert the 
 image.
 
+    ```sh
     qemu-img convert -f raw -O qcow2 myVmSnapshotRaw.raw myVmSnapshotQcow2.qcow2
+    ```
 
-As previously mentioned, the qcow2 format will store only the actual 
-customer data instead of storing a 1-to-1 copy of the root disk. If the 
-size of the customer data is considerably smaller than the total 
-capacity of the root disk, similarly the qcow2 image will be 
-considerably smaller than the raw image.
+    As previously mentioned, the qcow2 format will store only the actual customer data instead of storing a 1-to-1 copy of the root disk. If the size of the customer data is considerably smaller than the total capacity of the root disk, similarly the qcow2 image will be considerably smaller than the raw image.
 
-7) Once the conversion is completed, the new image can be uploaded to 
+7. Once the conversion is completed, the new image can be uploaded to 
 OpenStack.
 
+    ```sh
     openstack image create --disk-format qcow2 --file myVmSnapshotQcow2.qcow2 myVmSnapshotCompact 
+    ```
 
-If the operation is successful, we can remove the image in raw format from OpenStack.
+    If the operation is successful, we can remove the image in raw format from OpenStack.
 
+    ```sh
     openstack image delete <id_of_myVmSnapshot>
+    ```
 
-We may keep the auxiliary virtual machine for future image conversions, 
-or delete it right after its usage.
+    We may keep the auxiliary virtual machine for future image conversions, or delete it right after its usage.
 
+    ```sh
     openstack server delete <id_of_snapshotConverter>
+    ```
 
 ## Uploading images
 
@@ -305,21 +305,23 @@ uploading is. The most likely options are _qcow2_ and _raw_. You can
 find out the type of the image using the _file_ command. This is what
 a qcow2 image looks like:
 
-~~~~
+```sh
 $ file images/Ubuntu-15.10-Phoronix.qcow2
 images/Ubuntu-15.10-Phoronix.qcow2: Qemu Image, Format: Qcow (v3), 10737418240 bytes
-~~~~
+```
 
 And this is what a raw image looks like:
 
-~~~~
+```sh
 $ file images/Ubuntu-14.04-old.raw
 images/Ubuntu-14.04-old.raw: x86 boot sector; partition 1: ID=0x83, active, starthead 0, startsector 16065, 20948760 sectors, code offset 0x63
-~~~~
+```
 
 Upload using the command line:
 
-    openstack image create --disk-format <disk format> --private --file <image file to upload> <name of image to create>
+```sh
+openstack image create --disk-format <disk format> --private --file <image file to upload> <name of image to create>
+```
 
 This should upload the image. It takes a while before the image is usable.
 
@@ -333,23 +335,21 @@ You will be presented with this dialog:
 
 ![Image upload dialog](/img/horizon-image-upload-dialog.png)
 
-In this dialog, for example, we are creating an image called
-_Alpine-linux_. You can optionally add an **Image Description** for
-the image, if you need it for your reference. Due to security
-concerns, we support image uploads only via your local machine, and
-image upload via public URLs is disabled. In this example, we have
-thus selected an image we want to upload from our local machine via the
-**Browse** button. In this example, our image is an ISO image, so we
-have selected that in the **Format** drop-down menu. All remaining
-fields other than **Image Sharing \| Visibility** can keep their
-default values. In the **Image Sharing \| Visibility** checkbox, please
+In this dialog, we have filled in an example.
+
+- The **Image Name** will be _Alpine-linux_. 
+- You can optionally add an **Image Description** for
+the image, if you need it for your reference.
+- Due to security concerns, the only **Source Type** that is enabled is image uploads via your local machine. Image upload via public URLs is disabled. In this example, we have thus selected an image we want to upload from our local machine via the **Browse** button. In this example, our image is an ISO image, so we have selected that in the **Format** drop-down menu.
+- In the **Image Sharing > Visibility** checkbox, please
 make sure that you have set the visibility of the image as
 _Private_. It is not possible for normal users to create public images
 due to security reasons. In case you attempt to upload an image and
 set its visibility as _Public_, you will get an error message. Setting
 your image visibility to _Private_ will make your uploaded image
 private to your particular OpenStack project, and only the members
-of your project can access it.
+of your project will be able to access it.
+- All remaining fields can be kept with their default values.
 
 ## Sharing images between Pouta projects
 
@@ -366,18 +366,22 @@ cPouta project and ePouta project or vice versa. 
 To begin with, you need to first make sure the image is of the shared variant
 if it isn't already:
 
-    openstack image set --shared <your-image-UUID>
+```sh
+openstack image set --shared <your-image-UUID>
+```
 
 Then, initiate the share by executing the following _openstack_ command in the
 donor project: 
 
-    openstack image add project <your-image-UUID> <acceptor-project-UUID>
+```sh
+openstack image add project <your-image-UUID> <acceptor-project-UUID>
+```
 
 Then the acceptor project needs to accept this membership. To do so,
 you or your colleague needs to execute the following glance command in the
 acceptor project:
 
-```
+```sh
 openstack image set --accept <your-image-UUID>
 ```
 

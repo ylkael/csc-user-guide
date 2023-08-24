@@ -52,20 +52,17 @@ domain.of.the.sending.email.address.    IN    TXT    "v=spf1 include:hosted-at.c
 
 cPouta does not currently offer integrated name service management.
 
-All our floating IPs are mapped to a default hostname, for example:
+All our floating IPs are mapped to a default hostname, for example `vm0120.kaj.pouta.csc.fi` is mapped to `86.50.168.120`:
 
-```
-vm0120.kaj.pouta.csc.fi
-```
-
-To find the hostname of a floating IP, you can use `host` command:
 ```sh
-host -a <floating IP address>
+$ host vm0120.kaj.pouta.csc.fi                           
+vm0120.kaj.pouta.csc.fi has address 86.50.168.120
 ```
 
-And the result is `vmXXXX.kaj.pouta.csc.fi` listed in output:
+The command `dig` can also be used. It gives more information about the DNS status:
 
-```
+```sh
+$ dig vm0120.kaj.pouta.csc.fi A
 ...
 ;; ANSWER SECTION:
 x.x.x.x.in-addr.arpa. xxx IN     PTR     vmXXXX.kaj.pouta.csc.fi.
@@ -76,20 +73,20 @@ your own DNS server to point the domain name to the floating IP that
 the virtual machine is using.
 
 For most services, these forward DNS records are enough. Some services
-also require reverse DNS lookups to work. This means that we have to
+(like Kerberos) also require reverse DNS lookups to work. This means that we have to
 configure our DNS server to say that the floating IP you are using
 resolves to the domain name you are using.
 
 You can request reverse DNS mappings.
 
 - Point the DNS name to the server you want.
-- Send a mail to servicedesk@csc.fi with the IP/hostname pair
+- Send a mail to <servicedesk@csc.fi> with the IP/hostname pair
  you want to be mapped. Also send the UUID on the virtual machine
- it should be mapped to. You do not need to send a mail if the
+ it should be mapped to. Afterwards, you will not need to send a mail if the
  floating IP is moved to another machine, as long as the domain
  info for the floating IP still is correct.
 - When you no longer need the mapping, please contact
- servicedesk@csc.fi so we can remove the reverse DNS entry.
+ <servicedesk@csc.fi> so we can remove the reverse DNS entry.
 
 We reserve the right to clean up old reverse DNS records where the
 forward DNS records do not match anymore. We will also remove the

@@ -3,30 +3,19 @@ search:
   boost: 2
 ---
 
-## What is Pouta?
+# What is Pouta?
 
-cPouta and ePouta are the IaaS cloud services at CSC. The cPouta
-cloud is the public cloud which is easily accessible via the
-internet. The ePouta cloud is a virtual private cloud designed to meet
-the security requirements of handling sensitive data. Both the cPouta
-and ePouta clouds run on the OpenStack cloud software. The Pouta cloud
-services are suitable for most kinds of computational workloads and
-any other supporting services these workloads might need.
+The Pouta service is composed of two different and independent IaaS services, [cPouta](https://pouta.csc.fi) and [ePouta](https://epouta.csc.fi). The cPouta cloud is the general purpose public cloud platform. The ePouta cloud is the sensitive data cloud platform. If you handle sensitive data you must use ePouta. Both the cPouta and ePouta clouds run on the [OpenStack](https://www.openstack.org/) cloud software. The Pouta cloud services offer on-demand virtual infrastructure and are suitable for most kinds of computational workloads and any other supporting services these workloads might need.
 
-The cPouta virtual machines can be connected to external IP addresses,
-and in this case they can be directly accessed on the internet. This
-helps customers run widely available services, but the customers must
-also take care to secure their machines. The virtual machines do not
-have access to any other part of CSC's infrastructure, other than what
-is already visible on the internet. Application data and software must
-be uploaded either via the internet or copied from CSC's existing
+## cPouta
+
+The cPouta virtual machines can be configured to be accessible from the Internet. This allows customers to run widely available services. The virtual machines do not have access to any other part of CSC's infrastructure, other than what
+is already visible on the Internet. Application data and software must
+be uploaded either via the Internet or copied from CSC's existing
 shared storage services.
  
-The ePouta cloud services are well suited for computational workloads
-involving sensitive data as well as extending a customer's existing IT
-infrastructure. The ePouta cloud services are attached to the customer's
-infrastructure and can be used to analyse sensitive data which may
-require large amounts of memory or clustered I/O performance, a remote
-desktop for processing sensitive data etc. The virtual machines in the
-ePouta cloud may optionally have network access to specific sensitive
-data repositories at CSC.
+## ePouta
+
+The ePouta cloud service is designed to handle sensitive data. It follows the technical and legal requirements necessary to store data securely. The ePouta cloud virtual infrastructure is only accessible via the customer's own network
+infrastructure. It is independent and isolated from the rest of CSC resources, including other customer's ePouta infrastructures. It can be used to analyze sensitive data which may require large amounts of memory or clustered I/O performance, a remote
+desktop for processing sensitive data etc.
